@@ -25,12 +25,52 @@
  */
 
 
+import javax.swing.*;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        /** Declaración de Objetos*/
+        Scanner sc = new Scanner(System.in);
+        Factura factura1 = new Factura();
+        Factura factura2 = new Factura("001", "Tornillos", 10, 0.5);
 
+        /** Lectura de Datos */
+        System.out.println("============================");
+        System.out.println("Bienvenido a la Ferretería");
+        System.out.println("============================");
 
+        System.out.print("Ingrese el número de pieza: ");
+        factura1.setNumeroPieza(sc.nextLine());
 
+        System.out.print("Ingrese la descripción de la pieza: ");
+        factura1.setDescripcionPieza(sc.nextLine());
 
+        System.out.print("Ingrese la cantidad: ");
+        factura1.setCantidad(sc.nextInt());
+
+        System.out.print("Ingrese el precio por artículo: ");
+        factura1.setPrecioPorArticulo(sc.nextDouble());
+
+        /** Mostrar Resultados */
+        double montoFactura1 = factura1.obtenerMontoFactura();
+        double montoFactura2 = factura2.obtenerMontoFactura();
+
+        System.out.println("\nDetalles de la Factura 1:"); // Datos Ingresados por el Usuario
+        JOptionPane.showMessageDialog(null,
+                "Número de Pieza: " + factura1.getNumeroPieza() +
+                        "\n" + "Descripción de la Pieza: " + factura1.getDescripcionPieza() +
+                        "\n" + "Cantidad de la Pieza: " + factura1.getCantidad() +
+                        "\n" + "Precio por Artículo: $" + factura1.getPrecioPorArticulo() +
+                        "\n" + "Monto de la Factura: $" + montoFactura1);
+
+        System.out.println("\nDetalles de la Factura 2:"); // Datos Ingresados por el Usuario
+        JOptionPane.showMessageDialog(null,
+                "Número de Pieza: " + factura2.getNumeroPieza() +
+                        "\n" + "Descripción de la Pieza: " + factura2.getDescripcionPieza() +
+                        "\n" + "Cantidad de la Pieza: " + factura2.getCantidad() +
+                        "\n" + "Precio por Artículo: $" + factura2.getPrecioPorArticulo() +
+                        "\n" + "Monto de la Factura: $" + montoFactura2);
 
     }
 }

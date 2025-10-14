@@ -13,6 +13,9 @@ public class Factura {
         this.precioPorArticulo = precioPorArticulo;
     }
 
+    public Factura() {
+    }
+
     /** Métodos propios de Java (Getters & Setters)*/
     public String getNumeroPieza() {
         return numeroPieza;
@@ -47,20 +50,13 @@ public class Factura {
     }
 
     /** Métodos propios del Programador*/
-    // Obtener valores a las instancias
-    public void obtenerValores() {
-        System.out.println("Número de pieza: " + getNumeroPieza());
-        System.out.println("Descripción de la pieza: " + getDescripcionPieza());
-        System.out.println("Cantidad: " + getCantidad());
-        System.out.println("Precio por artículo: " + getPrecioPorArticulo());
+    public double obtenerMontoFactura() {
+        if (cantidad < 0) {
+            cantidad = 0;
+        }
+        if (precioPorArticulo < 0) {
+            precioPorArticulo = 0.0;
+        }
+        return cantidad * precioPorArticulo;
     }
-
-    // Establecer valores a la instancias
-    public void establecerValores(String numeroPieza, String descripcionPieza, int cantidad, double precioPorArticulo) {
-        setNumeroPieza(numeroPieza);
-        setDescripcionPieza(descripcionPieza);
-        setCantidad(cantidad);
-        setPrecioPorArticulo(precioPorArticulo);
-    }
-
 }
