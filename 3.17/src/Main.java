@@ -121,11 +121,12 @@ public class Main {
                 "\n-----------------------------------------");
 
         JOptionPane.showMessageDialog(null,
-                "Índice de Masa Corporal (IMC): " + perfil1.indiceMasaCorporal((double) perfil1.getAlturaCm()) +
-                "\nClasificación de IMC: " +  perfil1.clasificacionIMC(perfil1.indiceMasaCorporal((double) perfil1.getAlturaCm())) +
+        String.format("Índice de Masa Corporal (IMC): %.2f", perfil1.indiceMasaCorporal((double) perfil1.getAlturaCm())) +
+                "\nClasificación de IMC: " + perfil1.clasificacionIMC(perfil1.indiceMasaCorporal((double) perfil1.getAlturaCm())) +
                 "\n----------------------------------------" +
-                "\nFrecuencia Cardíaca Máxima: " + perfil1.frecuenciaCardiacaMax(anioActual) + " ppm" +
-                "\nRango de Frecuencia Cardíaca Esperada: " + perfil1.frecuenciaCardiacaEsperada((int) perfil1.frecuenciaCardiacaMax(anioActual)) + " ppm" +
-                "\n----------------------------------------" );
+                String.format("\nFrecuencia Cardíaca Máxima: %d ppm", perfil1.frecuenciaCardiacaMax(anioActual)) +
+                String.format("\nRango de Frecuencia Cardíaca Esperada: %.2f ppm", perfil1.frecuenciaCardiacaEsperada((int) perfil1.frecuenciaCardiacaMax(anioActual))) +
+                "\n----------------------------------------");
+
     }
 }
