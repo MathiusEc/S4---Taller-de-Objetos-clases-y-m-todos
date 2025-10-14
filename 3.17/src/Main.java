@@ -46,6 +46,7 @@ public class Main {
         + "\nPor favor, ingrese sus datos personales.");
 
         String Nombre = JOptionPane.showInputDialog("Ingrese su nombre:");
+        // Usar el setter para guardar el nombre en el objeto perfil1
         perfil1.setNombre(Nombre);
 
         String Apellido = JOptionPane.showInputDialog("Ingrese su apellido:");
@@ -54,21 +55,28 @@ public class Main {
         String Sexo = JOptionPane.showInputDialog("Ingrese su sexo (M/F):");
         perfil1.setSexo(Sexo);
 
+        // Validación de mes con bucle do-while
+        // do-while ejecuta el código primero, luego verifica la condición
         int MesNacimiento;
         do {
             String MesNacimientoStr = JOptionPane.showInputDialog("Ingrese su mes de nacimiento (1-12): ");
+            // Integer.parseInt() convierte un String a int
             MesNacimiento = Integer.parseInt(MesNacimientoStr);
             perfil1.setMesNacimiento(MesNacimiento);
             if (perfil1.getMesNacimiento() < 1 || perfil1.getMesNacimiento() > 12) {
                 JOptionPane.showMessageDialog(null, "Mes inválido. Por favor, ingrese un valor entre 1 y 12.");
             }
-        }while (perfil1.getMesNacimiento() < 1 || perfil1.getMesNacimiento() > 12);
+        }while (perfil1.getMesNacimiento() < 1 || perfil1.getMesNacimiento() > 12); // Repite mientras sea inválido
 
         int DiaNacimiento;
         do {
             String DiaNacimientoStr = JOptionPane.showInputDialog("Ingrese su día de nacimiento (1-31): ");
             DiaNacimiento = Integer.parseInt(DiaNacimientoStr);
             perfil1.setDiaNacimiento(DiaNacimiento);
+            // Se crea una variable String para el JOptionPane porque no acepta int directamente
+            // despues se convierte a int con Integer.parseInt()
+            // y se asigna a DiaNacimiento con setters
+
             if (perfil1.getDiaNacimiento() < 1 || perfil1.getDiaNacimiento() > 31) {
                 JOptionPane.showMessageDialog(null, "Día inválido. Por favor, ingrese un valor entre 1 y 31.");
             }
@@ -109,11 +117,14 @@ public class Main {
 
         /** Presentación de Resultados */
         int anioActual = 2025;
+
+        // Los getters obtienen los valores guardados en el objeto perfil1
         JOptionPane.showMessageDialog(null,
                 "Perfil Medico de: " + perfil1.getNombre() + " " + perfil1.getApellido() +
                 "\n----------------------------------------" +
                 "\nSexo: " + perfil1.getSexo() +
                 "\nFecha de Nacimiento: " + perfil1.getDiaNacimiento() + "/" + perfil1.getMesNacimiento() + "/" + perfil1.getAnioNacimiento() +
+                // calcularEdad() es un método que retorna la edad en años
                 "\nEdad: " + perfil1.calcularEdad(anioActual) + " años" +
                 "\n ----------------------------------------" +
                 "\nAltura: " + perfil1.getAlturaCm() + " cm" +
@@ -121,10 +132,19 @@ public class Main {
                 "\n-----------------------------------------");
 
         JOptionPane.showMessageDialog(null,
+        // indiceMasaCorporal() calcula el IMC y retorna un double
+        // (double) es un cast que convierte int a double
         String.format("Índice de Masa Corporal (IMC): %.2f", perfil1.indiceMasaCorporal((double) perfil1.getAlturaCm())) +
+                // String format sirve para dar formato a números
+                // %.2f formatea un número decimal con 2 dígitos después del punto
+                // El resultado de indiceMasaCorporal() se pasa como parámetro a clasificacionIMC()
+
                 "\nClasificación de IMC: " + perfil1.clasificacionIMC(perfil1.indiceMasaCorporal((double) perfil1.getAlturaCm())) +
                 "\n----------------------------------------" +
+                // frecuenciaCardiacaMax() calcula FCM con la fórmula 220 - edad
                 String.format("\nFrecuencia Cardíaca Máxima: %d ppm", perfil1.frecuenciaCardiacaMax(anioActual)) +
+                // frecuenciaCardiacaEsperada() calcula el promedio entre 50% y 85% de FCM
+                // (int) convierte el resultado de frecuenciaCardiacaMax() a entero
                 String.format("\nRango de Frecuencia Cardíaca Esperada: %.2f ppm", perfil1.frecuenciaCardiacaEsperada((int) perfil1.frecuenciaCardiacaMax(anioActual))) +
                 "\n----------------------------------------");
 
