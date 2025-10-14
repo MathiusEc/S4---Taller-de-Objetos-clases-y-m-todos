@@ -24,20 +24,13 @@
  * capacidades de la clase Factura.
  */
 
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        /**Lectura de datos*/
-        Scanner sc = new Scanner(System.in);
-        System.out.println("================================");
-        System.out.println("Bienvenido a la Ferretería");
-        System.out.println("================================");
 
-        System.out.println("Creando una instancia de la clase Factura...");
-        System.out.println("Ingrese los datos de la factura:");
-        System.out.println("Número de pieza:" + ;
+
+
 
     }
 }
