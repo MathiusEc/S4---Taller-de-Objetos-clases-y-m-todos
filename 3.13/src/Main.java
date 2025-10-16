@@ -1,15 +1,30 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+/**
+ * EJERCICIO: Clase Fecha
+ *
+ * Requisitos:
+ * Crear una clase llamada Fecha con tres variables de instancia:
+ *   - mes (tipo int)
+ *   - día (tipo int)
+ *   - año (tipo int)
+ *
+ * Implementar un constructor que inicialice las tres variables.
+ * Asumir que los valores proporcionados son correctos.
+ *
+ * Proporcionar métodos establecer (set) y obtener (get) para cada variable.
+ *
+ * Implementar el método mostrarFecha() que retorne la fecha en formato: día/mes/año
+ *
+ * Crear una aplicación de prueba llamada PruebaFecha que demuestre
+ *    las capacidades de la clase Fecha.
+ */
+
+import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        /**Creación del objeto*/
+        Fecha fecha1 = new Fecha();
+        fecha1.obtenerfecha();
+        JOptionPane.showMessageDialog(null, "La fecha del día es: " + fecha1.mostrarFecha());
     }
 }
