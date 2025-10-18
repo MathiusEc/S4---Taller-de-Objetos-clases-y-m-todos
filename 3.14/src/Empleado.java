@@ -48,11 +48,8 @@ public class Empleado {
         return getSalarioMensual() * 12;
     }
 
-    public double aumentarSalarioMensual(double porcentaje) {
-        double salario = 0;
-        salario *= (1 + porcentaje / 100);
-        setSalarioMensual(salario);
-        return getSalarioMensual();
+    public void aumentarSalarioMensual(double porcentaje) {
+        double nuevoSalario = getSalarioMensual() * (1 + porcentaje / 100);
+        setSalarioMensual(nuevoSalario);
     }
-
 }
